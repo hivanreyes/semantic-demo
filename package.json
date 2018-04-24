@@ -4,8 +4,10 @@
   "description": "Shape connect dashboard",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --progress --colors --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --progress --colors --watch",
+    "start-server": "node server/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ./ || true"
   },
   "repository": {
     "type": "git",
@@ -24,14 +26,19 @@
     "babel-preset-react": "^6.23.0",
     "eslint": "^3.18.0",
     "eslint-config-airbnb": "^14.1.0",
+    "eslint-config-airbnb-base": "^11.1.2",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
-    "webpack": "^2.3.2"
+    "webpack": "^2.3.2",
+    "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
+    "body-parser": "~1.17.1",
+    "express": "~4.15.2",
     "eslint-config-airbnb": "^14.1.0",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "react-router-dom": "^4.0.0"
   }
 }

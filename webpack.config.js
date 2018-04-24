@@ -1,18 +1,28 @@
+const path = require('path');
+const loaders = require('./webpack.loaders');
+
 module.exports = {
-  entry: './index',
+  entry: './client/index.jsx',
   output: {
-    filename: 'browser-bundle.js'
+    filename: './client/bundle.js',
   },
   devtool: 'source-map',
   module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['es2015', 'react']
-        }
-      },
-    ]
-  }
+    rules: [
+      loaders.js,
+      loaders.jsx,
+    ],
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx'],
+    modules: [
+      path.resolve(__dirname, 'client'),
+      'node_modules',
+    ],
+    modulesDirectories: ['node_modules'],
+    root: [
+      './',
+      path.join(__dirname, 'client'),
+    ],
+  },
 };
