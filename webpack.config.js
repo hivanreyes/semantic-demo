@@ -1,12 +1,24 @@
+/* eslint import/no-extraneous-dependencies: ["error", {"peerDependencies": true}] */
 const path = require('path');
+
+const webpack = require('webpack');
 const loaders = require('./webpack.loaders');
 
 module.exports = {
-  entry: './client/index.jsx',
+  entry: ['./client/index.jsx'],
+  target: 'web',
+  context: __dirname,
   output: {
-    filename: './client/bundle.js',
+    path: path.resolve(__dirname, 'public'),
+    filename: '[name].js',
+    publicPath: '/',
   },
-  devtool: 'source-map',
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: module => module.context && module.context.indexOf('node_modules') !== -1,
+    }),
+  ],
   module: {
     rules: [
       loaders.js,
@@ -14,15 +26,15 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.json'],
     modules: [
-      path.resolve(__dirname, 'client'),
+      path.resolve(__dirname, './client'),
+      path.resolve(__dirname, './'),
+      path.resolve(__dirname, './config/frontend'),
       'node_modules',
     ],
-    modulesDirectories: ['node_modules'],
-    root: [
-      './',
-      path.join(__dirname, 'client'),
-    ],
+    alias: {
+      frontendConfig: path.resolve(__dirname, './config/frontend/development.json'),
+    },
   },
 };

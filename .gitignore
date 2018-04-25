@@ -20,3 +20,10 @@ browser-bundle.js.map
 # Temporary files
 *.swp
 *.swo
+
+# Config files
+config/*
+!config/example.json
+
+# Logs
+npm-debug.log
