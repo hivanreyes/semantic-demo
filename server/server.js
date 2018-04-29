@@ -44,7 +44,6 @@ if (isDeveloping) {
   webpackConfig.entry.unshift(`webpack-dev-server/client?http://localhost:${FRONT_PORT}`);
 
   // Setup Webpack Dev Server
-  console.log(webpackConfig)
   const compiler = Webpack(webpackConfig);
   const server = new WebpackDevServer(compiler, {
     stats: {
@@ -52,6 +51,7 @@ if (isDeveloping) {
       progress: true,
     },
   });
+
 
   server.listen(FRONT_PORT, () => {
     console.log(`Frontend listening at http://localhost:${FRONT_PORT}`);

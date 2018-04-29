@@ -1,4 +1,4 @@
-import AppRouter from './AppRouter';
+import AppRouter from './appRouter';
 
 /**
  * Exposes components under it's parent folder
