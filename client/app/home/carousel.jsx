@@ -10,6 +10,7 @@ import style from 'styles/components/_carousel.scss';
 const settings = {
   dots: true,
   slidesToShow: 1,
+  lazyLoad: true,
   infinite: true,
   autoplay: true,
   speed: 200,
