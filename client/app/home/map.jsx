@@ -14,7 +14,7 @@ const HomeMap = () => (
     <Map
       style='mapbox://styles/mapbox/streets-v9'
       containerStyle={{
-        height: '100%',
+        height: '90%',
         width: '100%',
       }}
     >
@@ -27,6 +27,7 @@ const HomeMap = () => (
       </Layer>
       <ZoomControl position="top-left" />
     </Map>
+    <div className={style.policy}>Boundaries and names shown do not necessarily reflect the map policy of National Geographic.</div>
   </div>
 );
 
