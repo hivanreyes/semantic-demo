@@ -21,7 +21,7 @@ const ExpeditionCard = () => {
           <span className={style.postText}>post</span>
         </div>
         <div className={style.buttons}>
-          <Button label="Follow" />
+          <Button buttonType={'PRIMARY'} size={'SMALL'} label="Follow" />
         </div>
       </div>
     </div>

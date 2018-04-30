@@ -10,7 +10,7 @@ const Initiatives = () => (
       alt="Exploration for everyone"
     />
     <div className={style.centered}>
-      <Button label="Learn more about Open Explorer" />
+      <Button buttonType={'PRIMARY'} size={'BIG'} label="Learn more about Open Explorer" />
     </div>
   </div>
 );

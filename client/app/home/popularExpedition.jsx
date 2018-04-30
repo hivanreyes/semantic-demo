@@ -15,7 +15,7 @@ const settings = {
 
 const Popular = () => (
   <div className={style.sliderExpeditions}>
-    <Slider {...settings}>
+    <Slider {...settings} className={style.slider}>
       <div>
         <ExpeditionCard />
       </div>

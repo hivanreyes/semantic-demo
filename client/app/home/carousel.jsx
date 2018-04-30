@@ -55,7 +55,7 @@ const Carousel = () => (
         <div className={style.centered}>
           <div className={style.title}>Exploration for everyone</div>
           <div className={style.subtitle}>Follow the world’s explorers and start your own expedition</div>
-          <Button label="Get Started" />
+          <Button buttonType={'PRIMARY'} size={'BIG'} label="Get Started" />
         </div>
       </div>
       <div className={style.container}>
@@ -67,7 +67,7 @@ const Carousel = () => (
         <div className={style.centered}>
           <div className={style.title}>Hunting for underwater meteorites</div>
           <div className={style.subtitle}>Teens in Chicago are on a quest to find a meteorite in Lake Michigan</div>
-          <Button label="Learn More" />
+          <Button buttonType={'PRIMARY'} size={'BIG'} label="Learn More" />
         </div>
       </div>
       <div className={style.container}>
@@ -79,7 +79,7 @@ const Carousel = () => (
         <div className={style.centered}>
           <div className={style.title}>Exploring the most remote rivers in Angola</div>
           <div className={style.subtitle}>Follow the mission to protect sub-saharan Africa’s last pristine wetland</div>
-          <Button label="Learn More" />
+          <Button buttonType={'PRIMARY'} size={'BIG'} label="Learn More" />
         </div>
       </div>
     </Slider>

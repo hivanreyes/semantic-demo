@@ -20,7 +20,7 @@ const Featured = () => (
         Underwater macroalgal forests are among the most important ecosystems in our oceans. Their fronds and branches create a rich canopy, which harbors a diversity of species that are critical to nearshore trophic networks. Additionally, macroalgal forests offer a wide range of goods and services to populations living on the coast. They help ensure high water quality, provide refuge to species of
       </div>
       <div className={style.buttons}>
-        <Button label="Follow" />
+        <Button buttonType={'PRIMARY'} size={'SMALL'} label="Follow" />
       </div>
     </div>
   </div>
