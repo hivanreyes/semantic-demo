@@ -1,4 +1,5 @@
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const loaders = require('./webpack.loaders');
 
 module.exports = {
@@ -7,6 +8,12 @@ module.exports = {
     filename: './client/bundle.js',
     publicPath: '/',
   },
+  plugins: [
+    new CopyWebpackPlugin([
+      { context: './client/assets', from: '**/*', to: './assets' },
+      { context: './client/fonts', from: '*', to: './fonts' },
+    ], { ignore: ['*.scss'] }),
+  ],
   devtool: 'source-map',
   module: {
     rules: [
