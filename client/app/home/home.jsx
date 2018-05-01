@@ -5,6 +5,7 @@ import Map from './map';
 import Popular from './popularExpedition';
 import Featured from './featured';
 import Initiative from './initiatives';
+import Observations from './observations';
 
 const Home = () => (
   <div>
@@ -13,6 +14,7 @@ const Home = () => (
     <Map />
     <Popular />
     <Featured />
+    <Observations />
     <Initiative />
   </div>
 );
