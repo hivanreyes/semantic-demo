@@ -46,6 +46,7 @@ if (isDeveloping) {
   // Setup Webpack Dev Server
   const compiler = Webpack(webpackConfig);
   const server = new WebpackDevServer(compiler, {
+    disableHostCheck: true,
     stats: {
       colors: true,
       progress: true,
