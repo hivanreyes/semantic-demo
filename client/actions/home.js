@@ -17,6 +17,23 @@ export function getPopularExpeditions() {
   };
 }
 
+export function getFeaturedExpedition() {
+  return (dispatch) => {
+    api.home.getFeaturedExpedition().then((resp) => {
+      dispatch({
+        type: HOME.UPDATE_FEATURED_EXPEDITION,
+        payload: { featuredExpedition: resp.data[Math.floor(Math.random() * resp.data.length)] },
+      });
+    }).catch(() => {
+      dispatch({
+        type: HOME.UPDATE_FEATURED_EXPEDITION,
+        payload: { featuredExpedition: [] },
+      });
+    });
+  };
+}
+
 export default {
   getPopularExpeditions,
+  getFeaturedExpedition,
 };

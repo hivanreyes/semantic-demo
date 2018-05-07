@@ -9,24 +9,25 @@ import Observations from './observations';
 
 class Dashboard extends Component {
 
-
-
   componentDidMount() {
     const { actions } = this.props;
     // TODO: Will remove/refactor this to load defaults
     actions.getPopularExpeditions();
+    actions.getFeaturedExpedition();
   }
 
   render() {
-    const { popularExpeditions } = this.props;
+    const { popularExpeditions, featuredExpedition } = this.props;
     const popularExpeditionsArray = popularExpeditions.toJS();
+    const featuredExpeditionObject = featuredExpedition.toJS();
+
     return (
       <div>
         <Navbar />
         <Carousel />
         <Map />
         <Popular expeditions={popularExpeditionsArray} />
-        <Featured />
+        <Featured data={featuredExpeditionObject} />
         <Observations />
         <Initiative />
       </div>

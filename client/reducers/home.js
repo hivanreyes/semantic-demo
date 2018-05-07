@@ -7,6 +7,7 @@ import resolveEach from './reduxResolver';
 
 const initialState = fromJS({
   popularExpeditions: [],
+  featuredExpedition: {},
 });
 
 function updatePopularExpeditions(state, action) {
@@ -15,6 +16,13 @@ function updatePopularExpeditions(state, action) {
   });
 }
 
+function updateFeaturedExpedition(state, action) {
+  return state.mergeDeep({
+    featuredExpedition: action.payload.featuredExpedition,
+  });
+}
+
 export default resolveEach(initialState, {
   [HOME.UPDATE_POPULAR_EXPEDITIONS]: updatePopularExpeditions,
+  [HOME.UPDATE_FEATURED_EXPEDITION]: updateFeaturedExpedition,
 });
