@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import Home from './home/home';
+import HomeContainer from './home/homeContainer';
 
 /**
  * Exposes Application routes using react-router-dom
@@ -8,7 +8,7 @@ import Home from './home/home';
  */
 const AppRouter = () => (
   <BrowserRouter>
-    <Route path="/" component={Home} />
+    <Route path="/" component={HomeContainer} />
   </BrowserRouter>
 );
 

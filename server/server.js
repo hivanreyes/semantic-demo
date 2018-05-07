@@ -69,6 +69,6 @@ if (isDeveloping) {
   });
 }
 
-app.listen(PORT, () => {
-  console.log(`Backend listening at http://localhost:${PORT}`);
-});
+//app.listen(PORT, () => {
+//  console.log(`Backend listening at http://localhost:${PORT}`);
+//});

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Navbar from './navbar';
 import Carousel from './carousel';
 import Map from './map';
@@ -7,16 +7,32 @@ import Featured from './featured';
 import Initiative from './initiatives';
 import Observations from './observations';
 
-const Home = () => (
-  <div>
-    <Navbar />
-    <Carousel />
-    <Map />
-    <Popular />
-    <Featured />
-    <Observations />
-    <Initiative />
-  </div>
-);
+class Dashboard extends Component {
 
-export default Home;
+
+
+  componentDidMount() {
+    const { actions } = this.props;
+    // TODO: Will remove/refactor this to load defaults
+    actions.getPopularExpeditions();
+  }
+
+  render() {
+    const { popularExpeditions } = this.props;
+    const popularExpeditionsArray = popularExpeditions.toJS();
+    console.log(popularExpeditionsArray);
+    return (
+      <div>
+        <Navbar />
+        <Carousel />
+        <Map />
+        <Popular />
+        <Featured />
+        <Observations />
+        <Initiative />
+      </div>
+    );
+  }
+}
+
+export default Dashboard;
