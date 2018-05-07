@@ -1,24 +1,46 @@
 import React from 'react';
 import Button from './button';
+import _ from 'lodash';
+import TruncateMarkup from 'react-truncate-markup';
 import style from '../styles/components/_expeditionCard.scss';
 
-const ExpeditionCard = () => {
+const ExpeditionCard = ({ data }) => {
+  let postLabel = 'post';
+  if (data.postCount !== 1) postLabel = 'posts';
+  const firstLocation = data.firstLocation + ' ' + data.duration;
   return (
     <div className={style.containerExpCard}>
-      <img className={style.headerImg} src="https://images-openexplorer.nationalgeographic.com/ba192b3c-a515-49bf-838a-91d15fe0c308-large.jpg?v=x" alt="asd" />
+      <img className={style.headerImg} src={data.banner} alt={data.name} />
       <div className={style.detailsCard}>
         <div className={style.titleCard}>
-          Investigatin local
+          <TruncateMarkup lines={1}>
+            <div>
+              {data.name}
+            </div>
+          </TruncateMarkup>
+
         </div>
         <div className={style.subTitle}>
-          Point Reyes Station, California
+          <TruncateMarkup lines={1}>
+            <div>
+              <span>
+                {firstLocation}
+              </span>
+            </div>
+          </TruncateMarkup>
         </div>
         <div className={style.description}>
-         Our goal for this expedition is to hunt down six creatures in New England that exhibit bioluminosity and one psuedo-luminious plant. Though we will start with the familiar firefly, our journey will take us from the sea to the dark swamps and forests. Using our OpenROV and being patient 
+          <TruncateMarkup lines={8}>
+            <div>
+              <span>
+                {_.replace(data.description, /<(?:.|\n)*?>/gm, '')}
+              </span>
+            </div>
+          </TruncateMarkup>
         </div>
         <div className={style.post}>
-          <span className={style.number}>1</span>
-          <span className={style.postText}>post</span>
+          <span className={style.number}>{data.postCount}</span>
+          <span className={style.postText}>{postLabel}</span>
         </div>
         <div className={style.buttons}>
           <Button buttonType={'PRIMARY'} size={'SMALL'} label="Follow" />

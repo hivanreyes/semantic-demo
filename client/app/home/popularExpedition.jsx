@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Slider from 'react-slick';
+import _ from 'lodash';
 import { ExpeditionCard } from '../../components';
 import style from '../../styles/components/_sliderExpeditions.scss';
 import 'slick-carousel/slick/slick.css';
@@ -13,38 +14,20 @@ const settings = {
   slidesToScroll: 1,
 };
 
-const Popular = () => (
-  <div className={style.sliderExpeditions}>
-    <Slider {...settings} className={style.slider}>
-      <div>
-        <ExpeditionCard />
-      </div>
-      <div>
-        <ExpeditionCard />
-      </div>
-      <div>
-        <ExpeditionCard />
-      </div>
-      <div>
-        <ExpeditionCard />
-      </div>
-      <div>
-        <ExpeditionCard />
-      </div>
-      <div>
-        <ExpeditionCard />
-      </div>
-      <div>
-        <ExpeditionCard />
-      </div>
-      <div>
-        <ExpeditionCard />
-      </div>
-      <div>
-        <ExpeditionCard />
-      </div>
-    </Slider>
-  </div>
-);
+const Popular = ({ expeditions }) => {
+  let sliders = <div>No results</div>;
+
+  if (expeditions.length) {
+    sliders = expeditions.map(item => <div key={_.uniqueId('slider-')}><ExpeditionCard key={_.uniqueId('slider-')} data={item} /></div>);
+  }
+
+  return (
+    <div className={style.sliderExpeditions}>
+      <Slider {...settings} className={style.slider}>
+        {sliders}
+      </Slider>
+    </div>
+  );
+};
 
 export default Popular;

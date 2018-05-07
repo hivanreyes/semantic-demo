@@ -20,13 +20,12 @@ class Dashboard extends Component {
   render() {
     const { popularExpeditions } = this.props;
     const popularExpeditionsArray = popularExpeditions.toJS();
-    console.log(popularExpeditionsArray);
     return (
       <div>
         <Navbar />
         <Carousel />
         <Map />
-        <Popular />
+        <Popular expeditions={popularExpeditionsArray} />
         <Featured />
         <Observations />
         <Initiative />
