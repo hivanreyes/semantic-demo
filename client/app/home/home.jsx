@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import Navbar from './navbar';
+import NavBarWrapper from './navbar';
 import Carousel from './carousel';
 import Map from './map';
 import Popular from './popularExpedition';
 import Featured from './featured';
 import Initiative from './initiatives';
 import Observations from './observations';
+import Footer from './footer';
 import { Filter } from '../../components';
 
 class Dashboard extends Component {
@@ -33,7 +34,7 @@ class Dashboard extends Component {
 
     return (
       <div>
-        <Navbar />
+        <NavBarWrapper />
         <Carousel />
         <Map />
         <Filter title="Popular Expeditions" />
@@ -43,6 +44,7 @@ class Dashboard extends Component {
         <Featured data={featuredExpeditionObject} />
         <Observations expeditions={observationsArray} />
         <Initiative />
+        <Footer />
       </div>
     );
   }
