@@ -17,6 +17,22 @@ export function getPopularExpeditions() {
   };
 }
 
+export function getLatestExpeditions() {
+  return (dispatch) => {
+    api.home.getLatestExpeditions().then((resp) => {
+      dispatch({
+        type: HOME.UPDATE_LATEST_EXPEDITIONS,
+        payload: { latestExpeditions: resp.data },
+      });
+    }).catch(() => {
+      dispatch({
+        type: HOME.UPDATE_LATEST_EXPEDITIONS,
+        payload: { latestExpeditions: [] },
+      });
+    });
+  };
+}
+
 export function getFeaturedExpedition() {
   return (dispatch) => {
     api.home.getFeaturedExpedition().then((resp) => {

@@ -17,6 +17,8 @@ export default {
   home: {
     getPopularExpeditions: () =>
       api().get('views/expeditions/popular/20'),
+    getLatestExpeditions: () =>
+      api().get('views/expeditions/recent/20'),
     getFeaturedExpedition: () =>
       api().get('/views/expeditions/featured'),
     getObservations: () =>
