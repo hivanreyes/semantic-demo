@@ -6,6 +6,7 @@ import Popular from './popularExpedition';
 import Featured from './featured';
 import Initiative from './initiatives';
 import Observations from './observations';
+import { Filter } from '../../components';
 
 class Dashboard extends Component {
 
@@ -32,6 +33,7 @@ class Dashboard extends Component {
         <Navbar />
         <Carousel />
         <Map />
+        <Filter title="Popular Expeditions" />
         <Popular expeditions={popularExpeditionsArray} />
         <Featured data={featuredExpeditionObject} />
         <Observations expeditions={observationsArray} />
