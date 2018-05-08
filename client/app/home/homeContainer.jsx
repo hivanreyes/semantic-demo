@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import {
   getPopularExpeditions,
   getFeaturedExpedition,
+  getObservations,
 } from '../../actions/home';
 import Home from './home';
 
@@ -12,6 +13,7 @@ function mapStateToProps(state) {
     home: state.home,
     popularExpeditions: state.home.get('popularExpeditions'),
     featuredExpedition: state.home.get('featuredExpedition'),
+    observations: state.home.get('observations'),
   };
 }
 
@@ -19,6 +21,7 @@ function mapDispatchToProps(dispatch) {
   const actions = bindActionCreators({
     getPopularExpeditions,
     getFeaturedExpedition,
+    getObservations,
   }, dispatch);
 
   return { actions };

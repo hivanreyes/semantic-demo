@@ -33,7 +33,24 @@ export function getFeaturedExpedition() {
   };
 }
 
+export function getObservations() {
+  return (dispatch) => {
+    api.home.getObservations().then((resp) => {
+      dispatch({
+        type: HOME.UPDATE_OBSERVATIONS,
+        payload: { observations: resp.data },
+      });
+    }).catch(() => {
+      dispatch({
+        type: HOME.UPDATE_OBSERVATIONS,
+        payload: { observations: [] },
+      });
+    });
+  };
+}
+
 export default {
   getPopularExpeditions,
   getFeaturedExpedition,
+  getObservations,
 };

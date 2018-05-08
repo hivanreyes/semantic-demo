@@ -14,12 +14,18 @@ class Dashboard extends Component {
     // TODO: Will remove/refactor this to load defaults
     actions.getPopularExpeditions();
     actions.getFeaturedExpedition();
+    actions.getObservations();
   }
 
   render() {
-    const { popularExpeditions, featuredExpedition } = this.props;
+    const {
+      popularExpeditions,
+      featuredExpedition,
+      observations,
+    } = this.props;
     const popularExpeditionsArray = popularExpeditions.toJS();
     const featuredExpeditionObject = featuredExpedition.toJS();
+    const observationsArray = observations.toJS();
 
     return (
       <div>
@@ -28,7 +34,7 @@ class Dashboard extends Component {
         <Map />
         <Popular expeditions={popularExpeditionsArray} />
         <Featured data={featuredExpeditionObject} />
-        <Observations />
+        <Observations expeditions={observationsArray} />
         <Initiative />
       </div>
     );

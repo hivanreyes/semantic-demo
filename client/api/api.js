@@ -19,5 +19,7 @@ export default {
       api().get('views/expeditions/popular/20'),
     getFeaturedExpedition: () =>
       api().get('/views/expeditions/featured'),
+    getObservations: () =>
+      api().get('/views/observations/recent/20'),
   },
 };
