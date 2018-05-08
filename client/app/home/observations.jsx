@@ -22,6 +22,9 @@ const Popular = ({ expeditions }) => {
 
   return (
     <div className={style.sliderObservations}>
+      <div className={style.titleObservation}>
+        Recent Observations
+      </div>
       <Slider {...settings} className={style.slider}>
         {sliders}
       </Slider>
