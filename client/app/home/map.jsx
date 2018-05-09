@@ -22,15 +22,15 @@ const Map = ReactMapboxGl({
 
 const markers = (data) => {
   if (data.length < 1) return '';
-  return data.map((feat, key) => {
+  return data.map((feat) => {
     const coor = feat.geometry.coordinates;
     const numberArray = [(Number(coor[0])), (Number(coor[1]))];
 
     const iconsClassNames = classnames({
       [style.markerIcon]: true,
-      [style.orange]: feat.properties.stage.type == 'debriefing',
-      [style.green]: feat.properties.stage.type == 'preparation',
-      [style.blue]: feat.properties.stage.type == 'underway',
+      [style.orange]: feat.properties.stage.type === 'debriefing',
+      [style.green]: feat.properties.stage.type === 'preparation',
+      [style.blue]: feat.properties.stage.type === 'underway',
     });
 
     return (
@@ -45,8 +45,6 @@ const markers = (data) => {
   });
 };
 
-
-// in render()
 class HomeMap extends Component {
 
   constructor(props) {
@@ -57,7 +55,7 @@ class HomeMap extends Component {
   clusterMarker(coordinates) {
     return (
       <Marker coordinates={coordinates} key={_.uniqueId('cluster-')}>
-        <FontAwesomeIcon key={_.uniqueId('markIcon-')} icon="dot-circle" className={style.clusterIcon}/>
+        <FontAwesomeIcon key={_.uniqueId('markIcon-')} icon="dot-circle" className={style.clusterIcon} />
       </Marker>
     );
   }
@@ -86,7 +84,7 @@ class HomeMap extends Component {
         <div className={style.policy}>Boundaries and names shown do not necessarily reflect the map policy of National Geographic.</div>
       </div>
     );
-  };
-};
+  }
+}
 
 export default HomeMap;

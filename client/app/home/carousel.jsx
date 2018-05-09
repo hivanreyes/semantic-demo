@@ -13,7 +13,7 @@ const settings = {
   lazyLoad: true,
   infinite: true,
   autoplay: true,
-  speed: 200,
+  speed: 500,
   pauseOnHover: false,
   appendDots: dots => (
     <div
