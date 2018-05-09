@@ -5,6 +5,7 @@ import {
   getLatestExpeditions,
   getFeaturedExpedition,
   getObservations,
+  getGeoJson,
 } from '../../actions/home';
 import Home from './home';
 
@@ -16,6 +17,7 @@ function mapStateToProps(state) {
     latestExpeditions: state.home.get('latestExpeditions'),
     featuredExpedition: state.home.get('featuredExpedition'),
     observations: state.home.get('observations'),
+    geoJson: state.home.get('geoJson'),
   };
 }
 
@@ -25,6 +27,7 @@ function mapDispatchToProps(dispatch) {
     getLatestExpeditions,
     getFeaturedExpedition,
     getObservations,
+    getGeoJson,
   }, dispatch);
 
   return { actions };

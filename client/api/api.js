@@ -23,5 +23,7 @@ export default {
       api().get('/views/expeditions/featured'),
     getObservations: () =>
       api().get('/views/observations/recent/20'),
+    getGeoJson: () =>
+      api().get('/views/expeditions/geojson'),
   },
 };

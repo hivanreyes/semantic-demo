@@ -18,6 +18,7 @@ class Dashboard extends Component {
     actions.getLatestExpeditions();
     actions.getFeaturedExpedition();
     actions.getObservations();
+    actions.getGeoJson();
   }
 
   render() {
@@ -26,17 +27,19 @@ class Dashboard extends Component {
       featuredExpedition,
       observations,
       latestExpeditions,
+      geoJson,
     } = this.props;
     const popularExpeditionsArray = popularExpeditions.toJS();
     const latestExpeditionsArray = latestExpeditions.toJS();
     const featuredExpeditionObject = featuredExpedition.toJS();
     const observationsArray = observations.toJS();
+    const getGeoJsonArray = geoJson.toJS();
 
     return (
       <div>
         <NavBarWrapper />
         <Carousel />
-        <Map />
+        <Map data={getGeoJsonArray} />
         <Filter title="Popular Expeditions" />
         <Popular expeditions={popularExpeditionsArray} />
         <Filter title="Latest Expeditions" />

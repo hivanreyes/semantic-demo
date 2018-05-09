@@ -10,6 +10,7 @@ const initialState = fromJS({
   latestExpeditions: [],
   featuredExpedition: {},
   observations: [],
+  geoJson: [],
 });
 
 function updatePopularExpeditions(state, action) {
@@ -35,10 +36,16 @@ function updateObservations(state, action) {
     observations: action.payload.observations,
   });
 }
+function updateGeoJson(state, action) {
+  return state.mergeDeep({
+    geoJson: action.payload.geoJson,
+  });
+}
 
 export default resolveEach(initialState, {
   [HOME.UPDATE_POPULAR_EXPEDITIONS]: updatePopularExpeditions,
   [HOME.UPDATE_LATEST_EXPEDITIONS]: updateLatestExpeditions,
   [HOME.UPDATE_FEATURED_EXPEDITION]: updateFeaturedExpedition,
   [HOME.UPDATE_OBSERVATIONS]: updateObservations,
+  [HOME.UPDATE_GEOJSON]: updateGeoJson,
 });

@@ -65,8 +65,25 @@ export function getObservations() {
   };
 }
 
+export function getGeoJson() {
+  return (dispatch) => {
+    api.home.getGeoJson().then((resp) => {
+      dispatch({
+        type: HOME.UPDATE_GEOJSON,
+        payload: { geoJson: resp.data },
+      });
+    }).catch(() => {
+      dispatch({
+        type: HOME.UPDATE_GEOJSON,
+        payload: { geoJson: [] },
+      });
+    });
+  };
+}
+
 export default {
   getPopularExpeditions,
   getFeaturedExpedition,
   getObservations,
+  getGeoJson,
 };
